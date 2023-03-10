@@ -19,6 +19,14 @@ app.use(function (req, res, next) {
   // Pass to next layer of middleware
   next();
 });
+const corsOpts = {
+  origin: 'https://petshop-frontend-pf42.onrender.com/',
+  credentials: true,
+  methods: ['GET','POST','HEAD','PUT','PATCH','DELETE'],
+  allowedHeaders: ['Content-Type'],
+  exposedHeaders: ['Content-Type']
+};
+
 
 const http = require('http');
 require('dotenv').config();
@@ -40,7 +48,7 @@ const orderRoutes = require('./routes/orderRoutes');
 const imageRoutes = require('./routes/imageRoutes');
 const codeRoutes = require('./routes/codeRoutes');
 
-app.use(cors());
+app.use(cors(corsOpts));
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use('/users', userRoutes);
