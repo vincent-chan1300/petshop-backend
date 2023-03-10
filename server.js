@@ -4,7 +4,7 @@ const app = express();
 
 app.use(function (req, res, next) {
   // Website you wish to allow to connect
-  res.setHeader('Access-Control-Allow-Origin', 'https://petshop-frontend-4scs.onrender.com');
+  res.setHeader('Access-Control-Allow-Origin', 'https://petshop-frontend-pf42.onrender.com/');
 
   // Request methods you wish to allow
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -27,7 +27,7 @@ require('./connection')
 const server = http.createServer(app);
 const {Server} = require('socket.io');
 const io = new Server(server, {
-  cors: 'https://petshop-frontend-4scs.onrender.com',
+  cors: 'https://petshop-frontend-pf42.onrender.com/',
   methods: ['GET', 'POST', 'PATCH', "DELETE"]
 })
 
